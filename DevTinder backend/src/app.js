@@ -40,12 +40,12 @@ app.use("/", profileRouter);
 app.use("/", requestRouter);
 app.use("/", userRouter);
 
-app.use(express.static(path.join(_dirname, "/DevTinder frontend/dist")));
+const frontendPath = path.join(_dirname, "DevTinder frontend", "dist");
+app.use(express.static(frontendPath));
 app.get("*", (_, res) => {
-  res.sendFile(
-    path.resolve(_dirname, "DevTinder frontend", "dist", "index.html")
-  );
+  res.sendFile(path.resolve(frontendPath, "index.html"));
 });
+
 
 
 app.use(errorHandler);

@@ -48,7 +48,7 @@ export default function LoginForm() {
       );
       if (res.data.success) {
         dispatch(addUser(res.data?.user));
-        toast.success(res.data?.message);
+        toast.success(res.data?.message || "Something went wrong");
         navigate("/app");
         
        
