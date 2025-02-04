@@ -16,9 +16,14 @@ const app = express();
 
 const _dirname = path.resolve();
 
+const allowedOrigins = [
+  "http://localhost:5173",  // Dev environment
+  "https://devtinder-app-dun.vercel.app", // Production
+];
+
 app.use(
   cors({
-    origin: "https://devtinder-app-dun.vercel.app",
+    origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     credentials: true,
   }) 
@@ -32,11 +37,8 @@ app.use(cookieParser());
 
 app.use("/", authRouter);
 app.use("/", profileRouter); 
-
 app.use("/", requestRouter);
 app.use("/", userRouter);
-
-app.use(errorHandler);
 
 app.use(express.static(path.join(_dirname, "/DevTinder frontend/dist")));
 app.get("*", (_, res) => {
@@ -44,6 +46,10 @@ app.get("*", (_, res) => {
     path.resolve(_dirname, "DevTinder frontend", "dist", "index.html")
   );
 });
+
+
+app.use(errorHandler);
+
 
 connectDB()
   .then(() => {
