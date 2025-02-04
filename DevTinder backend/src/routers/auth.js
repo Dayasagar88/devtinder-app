@@ -24,7 +24,7 @@ authRouter.post("/signup", async (req, res, next) => {
     // validateSignupData(req);
 
     const { firstName, lastName, emailId, password } = req.body;
-
+    
     const isUserAlreadyExist = await User.findOne({ emailId });
 
     if (isUserAlreadyExist) {

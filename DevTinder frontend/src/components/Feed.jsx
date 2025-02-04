@@ -1,13 +1,10 @@
-"use client";
+
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import MessageSidebar from "./MessageSideBar";
+import MessageSidebar from "./MessageSidebar";
 import {
   Handshake,
-  HomeIcon,
   MessageCircle,
-  Search,
   Users,
 } from "lucide-react";
 import ConnectionRequestsPage from "./ConnectionRequestsPage";
