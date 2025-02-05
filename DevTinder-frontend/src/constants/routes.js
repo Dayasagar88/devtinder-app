@@ -1,4 +1,4 @@
-const BASE_URL = "https://devtinder-app-dun.vercel.app/api";
+const BASE_URL = "https://devtinder-app.onrender.com";
 
 export const LOGIN_URL = `${BASE_URL}/login`;
 export const SIGNUP_URL = `${BASE_URL}/signup`;
