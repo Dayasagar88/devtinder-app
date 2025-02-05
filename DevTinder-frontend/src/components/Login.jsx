@@ -126,7 +126,7 @@ export default function LoginForm() {
                       [e.target.name]: e.target.value,
                     }))
                   }
-                  type={!isPasswordVisible ? "password" : "text"}
+                  type={isPasswordVisible ? "password" : "text"}
                   id="password"
                   name="password"
                   placeholder={isPasswordVisible ? "••••••••" : "john@1234"}

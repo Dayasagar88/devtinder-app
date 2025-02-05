@@ -45,7 +45,7 @@ authRouter.post("/signup", async (req, res, next) => {
     });
 
     await user.save();
-    return res.status(200).json({ message: "User saved successfully!", user });
+    return res.status(200).json({ message: "User saved successfully!", success : true, user });
   } catch (err) {
     next(err); //forward the error to middleware
   }

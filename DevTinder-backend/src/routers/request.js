@@ -13,9 +13,6 @@ requestRouter.post(
       const toUserId = req.params.userId;
       const fromUserId = String(req.user._id);
       const status = req.params.status;
-      console.log(fromUserId);
-      console.log(toUserId);
-
       const ALLOWSTATUS = ["like", "pass"];
 
       const user = await User.findById(toUserId);

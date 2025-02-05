@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { SIGNUP_URL } from "../constants/routes";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "sonner";
 
 export default function SignUpForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +18,7 @@ export default function SignUpForm() {
     emailId: "",
     password: "",
   });
-  const user = useSelector(store => store.user)
+  const user = useSelector((store) => store.user);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -46,19 +47,23 @@ export default function SignUpForm() {
           withCredentials: true,
         }
       );
+      if (res.data?.success) {
+        toast.success(res.data?.message);
+        navigate("/login");
+      }
       // console.log(res.data)
     } catch (error) {
       setIsLoading(false);
-      console.log(error.response.data);
+      toast.error(error.response.data?.message);
     } finally {
       setIsLoading(false);
     }
   };
-   useEffect(() => {
-      if(user){
-        navigate("/app")
-      }
-    },[user])
+  useEffect(() => {
+    if (user) {
+      navigate("/app");
+    }
+  }, [user]);
 
   return (
     <div
@@ -97,7 +102,7 @@ export default function SignUpForm() {
                 <p className="mt-1 text-xs text-red-500">{errors.firstName}</p>
               )}
             </div>
-            
+
             <div>
               <label
                 htmlFor="lastName"
@@ -159,16 +164,15 @@ export default function SignUpForm() {
                   required
                 />
                 {!isPasswordVisible ? (
-                  
                   <Eye
-                  onClick={togglePassword}
-                  className=" absolute right-2 top-1 cursor-pointer"
-                />
+                    onClick={togglePassword}
+                    className=" absolute right-2 top-1 cursor-pointer"
+                  />
                 ) : (
                   <EyeClosed
-                  onClick={togglePassword}
-                  className="absolute right-2 top-1 cursor-pointer"
-                />
+                    onClick={togglePassword}
+                    className="absolute right-2 top-1 cursor-pointer"
+                  />
                 )}
               </div>
 

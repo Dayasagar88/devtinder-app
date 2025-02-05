@@ -14,8 +14,6 @@ export default function Hero() {
   const navigate = useNavigate();
 
   useEffect(() => {
-  
-
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -27,7 +25,7 @@ export default function Hero() {
     if (user) {
       navigate("/app");
     }
-  },[user])
+  }, [user]);
 
   return (
     <div
@@ -37,13 +35,13 @@ export default function Hero() {
       }}
     >
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-cover bg-center">
+      <section className="relative h-[calc(100vh-64px)] flex items-center justify-center bg-cover bg-center">
         <div className="absolute inset- bg-black bg-opacity-50"></div>
         <div className="relative z-10 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-down">
+          <h1 className="text-3xl md:text-6xl font-bold mb-4 animate-fade-in-down">
             Connecting Developers. Building Futures.
           </h1>
-          <p className="text-lg md:text-xl mb-8 animate-fade-in-up">
+          <p className="text-sm md:text-xl mb-8 animate-fade-in-up mx-auto sm:w-auto w-2/3">
             Find your next tech collaborator, mentor, or opportunity.
           </p>
           <div className="space-x-4">

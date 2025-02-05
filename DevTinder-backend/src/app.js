@@ -17,7 +17,7 @@ const app = express();
 const _dirname = path.resolve();
 
 const allowedOrigins = [
-  "http://localhost:3000",  // Dev environment
+  "http://localhost:3000", // Dev environment
   "https://devtinder-app.onrender.com", // Production
 ];
 
@@ -26,7 +26,7 @@ app.use(
     origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     credentials: true,
-  }) 
+  })
 );
 app.options("*", cors());
 
@@ -35,7 +35,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use("/", authRouter);
-app.use("/", profileRouter); 
+app.use("/", profileRouter);
 app.use("/", requestRouter);
 app.use("/", userRouter);
 
@@ -45,14 +45,11 @@ app.get("*", (_, res) => {
   res.sendFile(path.resolve(frontendPath, "index.html"));
 });
 
-
-
 app.use(errorHandler);
-
 
 connectDB()
   .then(() => {
-    console.log("Database connection established!😃"); 
+    console.log("Database connection established!😃");
     app.listen(port, () => {
       console.log(`Server is running on port ${port}...`);
     });
