@@ -1,12 +1,13 @@
-{"type": "commonjs",
+{
+  "type": "commonjs",
   "name": "devtinder",
   "version": "1.0.0",
   "description": "Tinder for devlopers",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon \"DevTinder backend/src/app.js\"",
-    "build": "npm install && npm install --prefix \"DevTinder frontend\" && npm run build --prefix \"DevTinder frontend\"",
-    "start": "nodemon \"DevTinder backend/src/app.js\""
+    "dev": "nodemon DevTinder-backend/src/app.js",
+    "build": "npm install && npm install --prefix DevTinder-frontend && npm run build --prefix DevTinder-frontend",
+    "start": "nodemon DevTinder-backend/src/app.js"
   },
   "keywords": [
     "MERN"
@@ -20,7 +21,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.9.4",  
+    "mongoose": "^8.9.4",
     "multer": "^1.4.5-lts.1",
     "validator": "^13.12.0"
   }
