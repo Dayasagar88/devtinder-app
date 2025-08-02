@@ -18,7 +18,8 @@ const _dirname = path.resolve();
 
 const allowedOrigins = [
   "http://localhost:3000", // Dev environment
-  "https://devtinder-app.onrender.com", // Production
+  "https://devtinder-app-psi.vercel.app/", // Production
+  "*"
 ];
 
 app.use(
